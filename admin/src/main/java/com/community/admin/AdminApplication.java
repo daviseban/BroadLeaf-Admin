@@ -8,8 +8,13 @@ import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-public class AdminApplication {
+public class AdminApplication extends SpringBootServletInitializer {
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(AdminApplication.class);
+    }
+    
     @Configuration
     @EnableBroadleafAdminAutoConfiguration
     public static class BroadleafFrameworkConfiguration {}
